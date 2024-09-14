@@ -1,6 +1,7 @@
 import React, { useState,useEffect } from 'react';
 import './ProductList.css'
 import CartItem from './CartItem';
+import {calculateTotalItems} from './CartItem'
 import { addItem } from './CartSlice';
 function ProductList() {
     const [showCart, setShowCart] = useState(false); 
@@ -252,7 +253,7 @@ const handlePlantsClick = (e) => {
   const [addedToCart, setAddedToCart] = useState({});
 
   const handleAddToCart = (product) => {
-    dispatchEvent(addItem(product));
+    dispatch(addItem(product));
     setAddedToCart((prevState) => ({
         ... prevState,
         [product.name]: true,
